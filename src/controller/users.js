@@ -24,6 +24,20 @@ const updateUser = (req, res) => {
   console.log(req.params);
   res.json({
     message: "UPDATE is success",
+    data: req.body,
+  });
+};
+
+const deleteUser = (req, res) => {
+  const { idUser } = req.params;
+  res.json({
+    message: "DELETE is success",
+    data: {
+      id: idUser,
+      name: "Farel",
+      email: "farel@gmail.com",
+      adress: "Bekasi",
+    },
   });
 };
 
@@ -31,4 +45,5 @@ module.exports = {
   getAllUsers,
   createNewUsers,
   updateUser,
+  deleteUser,
 };

@@ -12,4 +12,7 @@ router.post("/", UserController.createNewUsers);
 // UPDATE - PATCH
 router.patch("/:idUser", UserController.updateUser);
 
+// DELETE - DELETE
+router.delete("/:idUser", UserController.deleteUser);
+
 module.exports = router;
