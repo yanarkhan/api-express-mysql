@@ -1,14 +1,19 @@
-const getAllUsers = (req, res) => {
-  const data = {
-    id: "1",
-    name: "Tampan",
-    email: "tampan@gmail.com",
-    adress: "Bekasi",
-  };
-  res.json({
-    message: "method Get USERS is success",
-    data,
-  });
+const UsersModel = require("../models/users");
+
+const getAllUsers = async (req, res) => {
+  /* NB: Pemanggilan database bersifat asynchronus */
+  try {
+    const [data] = await UsersModel.getAllDataUsers();
+    res.json({
+      message: "method Get USERS is success",
+      data,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Server Error",
+      serverMessage: error,
+    });
+  }
 };
 
 const createNewUsers = (req, res) => {
