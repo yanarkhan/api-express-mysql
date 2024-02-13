@@ -19,7 +19,7 @@ const getAllUsers = async (req, res) => {
 const createNewUsers = async (req, res) => {
   const { body } = req;
 
-  if (!body.name || body.email || body.adress) {
+  if (!body.name || !body.email || !body.adress) {
     return res.status(400).json({
       message: "Please fill in all data",
       data: null,
