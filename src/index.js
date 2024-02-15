@@ -12,7 +12,10 @@ app.use(middlewareLogReq);
 
 /* Middleware Perizinan Request Body berupa JSON */
 app.use(express.json());
+/* Middleware untuk upload file */
+app.use("/assets", express.static("public/images"));
 
+/*  */
 app.use("/users", usersRoutes);
 
 app.listen(port, () => {
