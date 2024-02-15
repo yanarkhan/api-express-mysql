@@ -5,14 +5,14 @@ const storage = multer.diskStorage({
   destination: (req, file, callBack) => {
     callBack(null, "public/images");
   },
-  namaFile: (req, file, callBack) => {
+  filename: (req, file, callBack) => {
     const timeStamp = new Date().getTime();
-    const originalname = file.originalname;
+    const originalNameFile = file.originalname;
 
-    callBack(null, `${timeStamp} - ${originalname}`);
+    callBack(null, `${timeStamp} - ${originalNameFile}`);
   },
 });
 
-const upload = multer({ data: storage });
+const upload = multer({ storage });
 
 module.exports = upload;
